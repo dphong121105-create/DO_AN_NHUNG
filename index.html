@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Farm Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <div>
+            <h1>🌱 NHÓM 4</h1>
+            <p>Hệ thống giám sát nông nghiệp thông minh</p>
+        </div>
+
+        <div class="connection">
+            <span id="connectionDot"></span>
+            <span id="connectionText">Đang kết nối...</span>
+        </div>
+    </header>
+
+    <h2>Thông số môi trường</h2>
+
+    <section class="sensor-grid">
+
+        <div class="sensor-card">
+            <div class="icon">🌡️</div>
+            <h3>Nhiệt độ</h3>
+            <div class="value">
+                <span id="temperature">--</span> °C
+            </div>
+        </div>
+
+        <div class="sensor-card">
+            <div class="icon">💧</div>
+            <h3>Độ ẩm không khí</h3>
+            <div class="value">
+                <span id="humidity">--</span> %
+            </div>
+        </div>
+
+        <div class="sensor-card">
+            <div class="icon">🌿</div>
+            <h3>Độ ẩm đất</h3>
+            <div class="value">
+                <span id="soil">--</span> %
+            </div>
+        </div>
+
+    </section>
+
+    <h2>Trạng thái thiết bị</h2>
+
+    <section class="device-grid">
+
+        <div class="device-card">
+            <h3>🌀 Quạt</h3>
+            <span id="fanState" class="status">--</span>
+        </div>
+
+        <div class="device-card">
+            <h3>⚙️ Máy Bơm Nước</h3>
+            <span id="motorState" class="status">--</span>
+        </div>
+
+        <div class="device-card">
+            <h3>📡 ESP32</h3>
+            <span id="espState" class="status">--</span>
+        </div>
+
+    </section>
+
+
+<section class="settings-card">
+    <h2>⚙️ Cài đặt điều khiển tự động</h2>
+    <p class="settings-description">
+        Thiết lập ngưỡng để ESP32 tự động điều khiển bơm và quạt.
+    </p>
+
+    <div class="setting-item">
+        <h3>💧 Điều khiển máy bơm</h3>
+        <label for="pumpThreshold">
+            Bật bơm khi độ ẩm đất thấp hơn (%)
+        </label>
+        <input
+            type="number"
+            id="pumpThreshold"
+            min="0"
+            max="100"
+            step="1"
+            value="40"
+        />
+    </div>
+
+    <div class="setting-item">
+        <h3>🌀 Điều khiển quạt</h3>
+        <label for="fanThreshold">
+            Bật quạt khi nhiệt độ cao hơn (°C)
+        </label>
+        <input
+            type="number"
+            id="fanThreshold"
+            min="0"
+            max="100"
+            step="0.5"
+            value="30"
+        />
+    </div>
+
+    <button id="saveSettings">Lưu cài đặt</button>
+    <p id="settingsMessage">Chưa có thay đổi</p>
+</section>
+
+
+    <h2>Biểu đồ lịch sử</h2>
+
+    <div class="chart-card">
+        <canvas id="sensorChart"></canvas>
+    </div>
+
+    <div class="footer">
+        Cập nhật lần cuối:
+        <span id="lastUpdate">--</span>
+    </div>
+
+</div>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

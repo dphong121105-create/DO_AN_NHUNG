@@ -1,0 +1,220 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f5f2;
+    color: #263b30;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+header h1 {
+    color: #16834c;
+    font-size: 30px;
+}
+
+header p {
+    color: #777;
+    margin-top: 8px;
+}
+
+.connection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+#connectionDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: gray;
+}
+
+#connectionDot.online {
+    background: #20b66a;
+}
+
+#connectionDot.offline {
+    background: #e74c3c;
+}
+
+h2 {
+    margin: 25px 0 15px;
+    font-size: 21px;
+}
+
+.sensor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.sensor-card,
+.device-card,
+.chart-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.sensor-card {
+    text-align: center;
+    border-bottom: 4px solid #1c9b5c;
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.sensor-card h3 {
+    color: #777;
+    font-size: 16px;
+}
+
+.value {
+    font-size: 32px;
+    font-weight: bold;
+    color: #16834c;
+    margin-top: 15px;
+}
+
+.device-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.device-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.status {
+    padding: 8px 13px;
+    border-radius: 20px;
+    background: #eee;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status.on {
+    background: #d9f5e5;
+    color: #16834c;
+}
+
+.status.off {
+    background: #eee;
+    color: #666;
+}
+
+.chart-card {
+    height: 380px;
+}
+
+.footer {
+    margin-top: 25px;
+    color: #777;
+    text-align: right;
+}
+
+@media (max-width: 750px) {
+    .sensor-grid,
+    .device-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
+
+.settings-card {
+    background: white;
+    padding: 24px;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.settings-card h2 {
+    margin-top: 0;
+    color: #1e293b;
+}
+
+.settings-description {
+    color: #64748b;
+    margin-bottom: 20px;
+}
+
+.setting-item {
+    background: #f8fafc;
+    padding: 18px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+.setting-item h3 {
+    margin-top: 0;
+}
+
+.setting-item label {
+    display: block;
+    margin-bottom: 8px;
+    color: #475569;
+}
+
+.setting-item input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+#saveSettings {
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#saveSettings:hover {
+    background: #15803d;
+}
+
+#settingsMessage {
+    color: #64748b;
+    margin-bottom: 0;
+}
